@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Spring Framework Introduction</title>
+
+		<!-- <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab"> -->
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/style.css">
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+            <div class="slides">
+
+                
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
+<script type="text/template">
+## SPRING FRAMEWORK (V4)
+
+> The Spring Framework is a Java platform that provides comprehensive infrastructure support for developing Java applications.
+
+http://docs.spring.io/
+
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
+<script type="text/template">
+## Architecture
+
+![overview](img/spring-overview.png "overview")
+
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
+<script type="text/template">
+## SPRING WEB-MVC FRAMEWORK
+
+* MVC design pattern and REST Web services in Java applications.
+
+![mvc](img/mvc.png "mvc")
+
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
+<script type="text/template">
+## REST API for a songs catalog
+
+--
+
+## REST API?
+
+* GET: retrieve a resource
+* POST: create a resource
+* PUT: update a resource
+* DELETE: delete a resource
+
+More details [here](http://stackoverflow.com/questions/671118/what-exactly-is-restful-programming).
+
+--
+
+## Project
+
+* Fork the project: [mcolmant/IFI-SongsCatalog](https://github.com/mcolmant/IFI-SongsCatalog)
+
+--
+
+## Contents
+
+--
+
+* `pom.xml`
+* `fil.iagl.ifi.configuration`
+* `fil.iagl.ifi.controller`
+* `fil.iagl.ifi.model`
+* `fil.iagl.ifi.service`
+
+--
+
+`configuration.SongsCatalogInitializer`
+
+* Init. the configuration (`SongsCatalogConfiguration`)
+* Map servlets to URL (`/`)
+
+--
+
+`configuration.SongsCatalogConfiguration`
+
+* java-based (could be also done in XML files...)
+* `@ComponentScan(basePackages...)`: auto-scan classes in given packages
+
+--
+
+`controller.SongsCatalogController`
+
+* `@RestController`: REST, return in the body response
+* `@Autowired`: auto-scan
+* `RequestBody`: request to the annotated parameter
+* `ResponseEntity`: HTTP response
+* `@PathVariable`: URI variable (`{}`)
+* `MediaType`: Request/response type
+
+--
+
+`pom.xml`
+
+```
+<artifactId>spring-webmvc</artifactId>
+<artifactId>spring-tx</artifactId>
+<artifactId>jackson-databind</artifactId>
+<artifactId>javax.servlet-api</artifactId>
+<artifactId>commons-logging</artifactId>
+```
+
+---
+
+## API done?
+
+* Create a pull request
+
+</script>
+</section>
+
+
+
+            </div>
+
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'slides', // default/cube/page/concave/zoom/linear/fade/none
+
+                
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    
+                    
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
