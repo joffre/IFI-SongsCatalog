@@ -12,4 +12,6 @@ import java.util.List;
 public interface SongServiceInterface {
     List<Song> findAllSongs();
     Song findById(long id);
+    long createSong(String name, String album, String singer);
+    void deleteSong(long id);
 }

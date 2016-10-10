@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,5 +42,25 @@ public class SongsCatalogController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(song, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/song/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Song> postSong(@RequestBody Song song) {
+        long newSongID = songService.createSong(song.getName(), song.getAlbum(), song.getSinger());
+        Song newSong = songService.findById(newSongID);
+        if (newSong == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(newSong, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/song/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Song> deleteSong(@PathVariable("id") long id) {
+    	songService.deleteSong(id);
+        Song song = songService.findById(id);
+        if (song != null) {
+            return new ResponseEntity<>(song, HttpStatus.NOT_MODIFIED);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

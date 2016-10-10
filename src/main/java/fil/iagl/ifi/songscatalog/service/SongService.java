@@ -33,4 +33,19 @@ public class SongService implements SongServiceInterface {
         }
         return null;
     }
+
+	@Override
+	public long createSong(String name, String album, String singer) {
+		long newID = counter.incrementAndGet();
+		songs.add(new Song(newID, name, album, singer));
+		return newID;
+	}
+
+	@Override
+	public void deleteSong(long id) {
+		Song toDel = findById(id);
+		if(toDel != null){
+			songs.remove(toDel);
+		}
+	}
 }
