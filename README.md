@@ -1,6 +1,6 @@
 ## Introduction to Spring Web-MVC.
 
-Here is REST API for a songs catalog that needs to be completed.
+Here is a REST API for a songs catalog that needs to be completed.
 
 ### Prerequisites
 
