@@ -1,0 +1,59 @@
+{
+	"variables": [],
+	"info": {
+		"name": "IFI",
+		"_postman_id": "654f2609-8ac6-7cb4-8990-c3d014a52b83",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/SongsCatalogRestService/song/",
+			"request": {
+				"url": "http://localhost:8080/SongsCatalogRestService/song/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Duele El Corazon\",\n  \"album\": \"Duele El Corazon\",\n  \"singer\": \"Enrique Iglesias\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/SongsCatalogRestService/song/",
+			"request": {
+				"url": "http://localhost:8080/SongsCatalogRestService/song/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/SongsCatalogRestService/song/ copy",
+			"request": {
+				"url": "http://localhost:8080/SongsCatalogRestService/song/4",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
